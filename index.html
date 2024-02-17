@@ -1,0 +1,99 @@
+
+<br>
+<br>
+<table border="2px">
+  <tr>
+  <td>Name</td><td><input type="text" id="NAME"></td>
+  </tr>
+  <tr><td>Age</td><td><input type="text" id="AGE"></td> </tr>
+  <tr><td>Gender</td><td><input type="radio" name="Gender" class="Gender" value="Male">Male <input type="radio" name="Gender"class="Gender" value="Female">Female</td></tr>
+  <tr><td>Course</td><td><select name="" id="course"><option value="Javascript">Javascript</option><option value="HTML">HTML</option> <option value="CSS">CSS</option></select></td></tr>
+  <tr><td>E-Mail</td><td><input type="email" id="EMail"></td></tr>
+  <tr><td><button onclick="add()" id="SAVE">SAVE</button></td></tr>
+</table>
+<br>
+<br>
+<br>
+<table border="3px" id="output">
+  <tr><td>NAME</td><td>AGE</td><td>COURSE</td><td>GENDER</td><td>EMAIL</td><td>ACTION</td></tr>
+  <tr><td id="Nametag">NAME</td><td id="Agetag">AGE</td><td id="Coursetag">COURSE</td><td id="Gendertag">GENDER</td><td id="Emailtag">EMAIL</td><td><button id="delete" onclick="remove()">Delete</button></td></tr>
+  
+</table>
+
+
+
+<script>
+
+let NAME =document.querySelector("#NAME")
+let AGE =document.querySelector("#AGE")
+let Gender=document.querySelector('.Gender')
+ let course=document.querySelector("#course")
+ let courseval= course.options[course.selectedIndex].value
+
+let EMail=document.querySelector('#EMail')
+let SAVE=document.querySelector('#SAVE')
+
+
+let table=document.querySelector("#output")
+let tablerow=document.createElement('tr')
+let Nametag= document.createElement('td')
+Nametag.setAttribute("id",Nametag)
+let Agetag=document.createElement('td')
+Agetag.setAttribute('id',Agetag)
+let Coursetag=document.createElement('td')
+Coursetag.setAttribute('id',Coursetag)
+let Gendertag=document.createElement('td')
+Gendertag.setAttribute('id',Gendertag)
+let Emailtag=document.createElement('td')
+Emailtag.setAttribute('id',Emailtag)
+let deletetag=document.createElement('td')
+var btn=document.createElement('button')
+btn.innerHTML='delete'
+
+function add(){
+
+  Nametag.innerHTML=NAME.value
+  Agetag.innerHTML=AGE.value
+  Coursetag.innerHTML=courseval
+  Gendertag.innerHTML=Gender.value
+  Emailtag.innerHTML=EMail.value
+  table.append(tablerow)
+  tablerow.append(Nametag)
+  tablerow.append(Agetag)
+  tablerow.append(Coursetag)
+  tablerow.append(Gendertag)
+  tablerow.append(Emailtag)
+  deletetag.append(btn)
+  tablerow.append(deletetag)
+}
+btn.addEventListener('click',remove);
+function remove(){
+  table.removeChild(tablerow)
+}
+
+
+
+
+// let Nametag=document.querySelector('#Nametag')
+// let Agetag=document.querySelector('#Agetag')
+// let Coursetag=document.querySelector("#Coursetag")
+// let Emailtag=document.querySelector("#Emailtag")
+// let Gendertag=document.querySelector("#Gendertag")
+// let del=document.querySelector('#delete')
+
+// function add(){
+//     Nametag.innerHTML=NAME.value;
+//     Agetag.innerHTML=AGE.value;
+//     Coursetag.innerHTML=Course.selectedIndex;
+//     Emailtag.innerHTML=EMail.value;
+//     Gendertag.innerHTML=Gender.name;
+// }
+ // function remove(){
+//     Nametag.innerHTML='';
+//     Agetag.innerHTML='';
+//     Coursetag.innerHTML='';
+//     Emailtag.innerHTML='';
+//     Gendertag.innerHTML='';
+// } -->
+  
+</script>
